@@ -1,0 +1,10 @@
+<resources>
+
+    <string name="app_name">ActivityAssignment</string>
+    <string name="activity_text">Start Activity</string>
+    <string name="activity_for_results">Start Activity for Results</string>
+    <string name="return_text">Return Without Results</string>
+    <string name="return_text_with_ok_result">Return With OK Result</string>
+    <string name="return_text_with_cancelled_result">Return Cancelled Result</string>
+
+</resources>
