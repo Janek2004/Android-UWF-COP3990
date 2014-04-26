@@ -34,11 +34,9 @@ public class SecondActivity extends Activity {
 		
 		//set action listeners
 		mreturn_button.setOnClickListener(new OnClickListener(){
-
 			@Override
 			public void onClick(View arg0) {
-			// TODO Auto-generated method stub
-				finish();
+				// TODO finish the activity
 				
 			}
 		});
@@ -46,52 +44,25 @@ public class SecondActivity extends Activity {
 		ok_results_button.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View arg0) {
-			// TODO Auto-generated method stub
-				setResult(Activity.RESULT_OK);
-				finish();
+			// TODO set the result to Activity.RESULT_OK and finish the activity
+			
 			}
 		});	
 		
 		cancelled_results_button.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View arg0) {
-			// TODO Auto-generated method stub
-				setResult(Activity.RESULT_CANCELED);
-				finish();
+				// TODO set the result to Activity.RESULT_CANCELLED and finish the activity
+				
 			}
 		});		
 	}
 	
-	//Lifecycle methods
-	
+	//TODO Add Lifecycle methods and appropriate log statements, use onStart method overriden below as an example
 	@Override
 	protected void onStart(){
 		super.onStart();
 		Log.i(TAG,mOnStart);
 	}
-	
-	@Override
-	protected void onStop(){
-		super.onStop();
-		Log.i(TAG,mOnStop);	
-	}
-	
-	@Override
-	protected void onPause(){
-		super.onPause();
-		Log.i(TAG,mOnPause);		
-	}
-	@Override
-	protected void onResume(){
-		super.onResume();
-		Log.i(TAG,mOnResume);		
-	}	
-	
-	@Override
-	protected void onDestroy(){
-		super.onDestroy();
-		Log.i(TAG,mOnDestroy);		
-	}
-	
 	
 }

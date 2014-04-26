@@ -46,24 +46,21 @@ public class MainActivity extends Activity {
 		mstart_activity_button.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
-				//Create an intent and display second activity
-				Intent intent = new Intent(getApplicationContext(), SecondActivity.class);
-				startActivity(intent);
+				// TODO Create an intent and display second activity
+				
 			}
 		});
 		
 		mstart_activity_for_results_button.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View arg0) {
-				//Creating intent and display second activity using startActivityForResult method
-				Intent intent = new Intent(getApplicationContext(), SecondActivity.class);
-				 startActivityForResult(intent, MAIN_ACTIVITY_REQUEST_CODE);
+				//TODO: Create an intent and display second activity using startActivityForResult method
+				// use MAIM_ACTIVITY_REQUEST_CODE as request code
 				 
 			}});
 	}	
 	
-	//Lifecycle methods
+	//TODO Add Lifecycle methods and appropriate log statements, use onStart method overriden below as an example
 	
 	@Override
 	protected void onStart(){
@@ -71,42 +68,16 @@ public class MainActivity extends Activity {
 		Log.i(TAG,mOnStart);
 	}
 	
-	@Override
-	protected void onStop(){
-		super.onStop();
-		Log.i(TAG,mOnStop);	
-	}
-	
-	@Override
-	protected void onPause(){
-		super.onPause();
-		Log.i(TAG,mOnPause);		
-	}
-	@Override
-	protected void onResume(){
-		super.onResume();
-		Log.i(TAG,mOnResume);		
-	}	
-	
-	@Override
-	protected void onDestroy(){
-		super.onDestroy();
-		Log.i(TAG,mOnDestroy);		
-	}
-	
 	//Receives results from Activities
 	@Override 
 	protected void onActivityResult(int requestCode, int resultCode, Intent data){
 		super.onActivityResult(requestCode, resultCode, data);
+
 		//Check request code
 		if(requestCode == MAIN_ACTIVITY_REQUEST_CODE){
-			//check for result 
-			if(resultCode == Activity.RESULT_OK){
-				Log.i(TAG, mResultOk);	
-			}
-			else if(resultCode == Activity.RESULT_CANCELED){
-				Log.i(TAG, mResultCancelled);				
-			}
+			//TODO: Check activity resultCode: use if-else statement to log content of the mResultOK if the returned value is equal to Activity.RESULT_OK, 
+			//and  log content of the mResultCancelled if the returned value is equal to Activity.RESULT_CANCELLED
+
 		}
 	}	
 }
