@@ -35,4 +35,18 @@ public class LaunchActivityTest extends ActivityUnitTestCase<MainActivity> {
 		assertTrue("Expected Action:"+Intent.ACTION_SEND, Intent.ACTION_SENDTO.equals(intent.getAction()));
 		assertTrue("Expected Type "+ HTTP.PLAIN_TEXT_TYPE, intent.getType().equals(HTTP.PLAIN_TEXT_TYPE));	
 	}
+	
+	public void testCalandar(){
+		Intent intent=activity.createSMSIntent(MainActivity.TAG);
+		Bundle b =  intent.getExtras();
+		String message= (String) b.get("sms_body");
+		assertTrue("Expected "+MainActivity.TAG, MainActivity.TAG.equals(message));
+		assertTrue("Expected Action:"+Intent.ACTION_SEND, Intent.ACTION_SENDTO.equals(intent.getAction()));
+		assertTrue("Expected Type "+ HTTP.PLAIN_TEXT_TYPE, intent.getType().equals(HTTP.PLAIN_TEXT_TYPE));	
+		
+		
+	
+	}
+	
+	
 }

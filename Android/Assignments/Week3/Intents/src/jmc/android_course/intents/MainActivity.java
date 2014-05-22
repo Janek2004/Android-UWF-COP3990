@@ -1,10 +1,11 @@
 package jmc.android_course.intents;
 
 //import jmc.android_course.activity_assignment.R;
+import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import org.apache.http.protocol.HTTP;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -16,18 +17,21 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
+
 public class MainActivity extends Activity {
 	public final static String TAG = "Intent and Permissions Assignment"; //Main Activity TAG
+	public final static int MINUTES = 30;
+	public final static int HOUR = 14;
+	public final static int DAY =Calendar.MONDAY;
 	
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-
-	 			
-		 final Button msearch_btn = (Button) findViewById(R.id.search_intent_btn);
-		 msearch_btn.setOnClickListener(new OnClickListener(){
+		
+		final Button msearch_btn = (Button) findViewById(R.id.search_intent_btn);
+		msearch_btn.setOnClickListener(new OnClickListener(){
 
 				@Override
 				public void onClick(View arg0) {
@@ -66,18 +70,16 @@ public class MainActivity extends Activity {
 	/**
 	 * Creates Intent that starts web search 
 	 * */
-	public Intent createAlarmIntent(String message,int hour, int minutes)
+	public Intent createAlarmIntent(String message,int hour, ArrayList<Integer>days, int minutes)
 	{
 		 Intent intent = new Intent();
 		 intent.setAction(AlarmClock.ACTION_SET_ALARM);
+		 intent.putExtra(AlarmClock.EXTRA_DAYS, days);
 		 intent.putExtra(AlarmClock.EXTRA_MESSAGE, message);
          intent.putExtra(AlarmClock.EXTRA_HOUR, hour);
          intent.putExtra(AlarmClock.EXTRA_MINUTES, minutes);
          intent.putExtra(AlarmClock.EXTRA_SKIP_UI, false);
-         
-         
-         
-         
+                           
          return intent;
 	}
 
