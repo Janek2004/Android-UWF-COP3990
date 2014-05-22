@@ -9,23 +9,19 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical" >
-        <Button
-        android:id="@+id/data_intent_btn"
+     <Button
+        android:id="@+id/set_alarm_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Data Intent" />
-    
-    <Button
-        android:id="@+id/call_intent_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Call Intent" />
+        android:text="Set Alarm Intent" />
     
     <Button
         android:id="@+id/search_intent_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Search Intent" />
-        
+     
+    
+    
     </LinearLayout>
 </FrameLayout>

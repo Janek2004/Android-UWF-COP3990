@@ -3,7 +3,6 @@ import com.robotium.solo.*;
 import android.test.ActivityInstrumentationTestCase2;
 import jmc.android_course.activity_assignment.MainActivity;
 
-
 public class MainTest extends ActivityInstrumentationTestCase2<MainActivity> {
 
 	private Solo solo;
