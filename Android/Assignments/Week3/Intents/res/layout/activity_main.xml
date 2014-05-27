@@ -10,18 +10,28 @@
         android:layout_height="match_parent"
         android:orientation="vertical" >
      <Button
-        android:id="@+id/set_alarm_btn"
+        android:id="@+id/set_alarm_intent_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Set Alarm Intent" />
-    
-    <Button
+     
+     <Button
         android:id="@+id/search_intent_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Search Intent" />
-     
     
+    <Button
+        android:id="@+id/implicit_intent_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Implicit Intent" />
     
+      <Button
+        android:id="@+id/explicit_intent_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Explicit Intent" />
+ 
     </LinearLayout>
 </FrameLayout>
