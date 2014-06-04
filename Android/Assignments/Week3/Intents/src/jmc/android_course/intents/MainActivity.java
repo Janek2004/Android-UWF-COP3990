@@ -15,7 +15,7 @@ import android.widget.Button;
 
 
 public class MainActivity extends Activity {
-	public final static String TAG = "Intent and Permissions Assignment"; //Main Activity TAG
+	public final static String TAG = "Intents and Permissions Assignment"; //Main Activity TAG
 	public final static String MESSAGE = "Intent and Permissions Assignment Alarm";
 	static final String ACTION_CUSTOM = "jmc.android_course.intents.CUSTOM";
 	static final String EXTRA_CUSTOM_MESSAGE_TAG="EXTRA_CUSTOM_MESSAGE"; 

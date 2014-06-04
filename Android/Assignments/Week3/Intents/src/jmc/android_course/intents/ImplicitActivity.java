@@ -9,7 +9,7 @@ import android.util.Log;
 
 
 public class ImplicitActivity extends Activity {
-	public final static String TAG = "Intent and Permissions Assignment"; //Main Activity TAG
+	public final static String TAG = "Intents and Permissions Assignment"; //Main Activity TAG
 	public final static String IMPLICIT_MESSAGE ="Implicit Intent Detected";
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
