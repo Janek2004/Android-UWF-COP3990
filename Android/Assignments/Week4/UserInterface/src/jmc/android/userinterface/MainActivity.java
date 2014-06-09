@@ -2,18 +2,18 @@ package jmc.android.userinterface;
 
 import android.support.v7.app.ActionBarActivity;
 
-import android.support.v4.app.Fragment;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -26,6 +26,8 @@ public class MainActivity extends ActionBarActivity {
 	public TextView result;
 	public AlertDialog alertDialog;
 	public Context mContext;
+	
+	public static final String TAG = "User Interface Assignment";
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -80,27 +82,27 @@ public class MainActivity extends ActionBarActivity {
 		
 	}
 
-	//Mathematical Operations
-
+//Mathematical Operations
 	public int add(int n1, int n2){
 		
 		
-		return -1;
+		return n1+n2;
 	}
 	
 	public int subtract(int n1, int n2){
 		
-		return -1;
+		return n1-n2;
 	}
 	
 	public int multiply(int n1, int n2){
 		
-		return -1;
+		return n1*n2;
 	}
 	
 	public int divide(int n1, int n2){
+		if(n2==0)	return -1;
 		
-		return -1;
+		return n1/n2;
 	}
 	
 	//showing the result using Toast
@@ -141,7 +143,11 @@ public class MainActivity extends ActionBarActivity {
 		// automatically handle clicks on the Home/Up button, so long
 		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
+				
 		if (id == R.id.action_settings) {
+			Intent i = new Intent(this, HelpActivity.class);
+			startActivity(i);
+			
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
