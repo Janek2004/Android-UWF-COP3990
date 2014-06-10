@@ -24,7 +24,6 @@ public class MainTest extends ActivityInstrumentationTestCase2<MainActivity> {
 	
 	public void testImplicitIntent() throws InterruptedException{
 
-		
 			assertTrue("Main Activity  is not found!",
 			solo.waitForActivity(MainActivity.class));	
 			solo.clickOnView(solo.getView(jmc.android_course.intents.R.id.implicit_intent_btn));

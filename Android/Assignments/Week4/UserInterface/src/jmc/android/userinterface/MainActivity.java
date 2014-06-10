@@ -9,7 +9,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -21,40 +20,82 @@ import android.widget.Toast;
 
 public class MainActivity extends ActionBarActivity {
 
-	public EditText number1;
-	public EditText number2;
-	public TextView result;
-	public AlertDialog alertDialog;
-	public Context mContext;
 	
 	public static final String TAG = "User Interface Assignment";
+	public Context mContext;	
+	public TextView resultTextView;
+	public EditText number1Text;
+	public EditText number2Text; 
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		final Button addBtn = (Button) findViewById(R.id.add);
+		final Button multiplyBtn = (Button) findViewById(R.id.multiply);
+		final Button divide = (Button) findViewById(R.id.divide);
 		final Button eraseBtn = (Button) findViewById(R.id.erase);
-		result = (TextView) findViewById(R.id.result);
-		number1 = (EditText) findViewById(R.id.number1);
-		number2 = (EditText) findViewById(R.id.number2);	
+		final Button subtractBtn = (Button) findViewById(R.id.subtract);
+		
+		
+		number1Text = (EditText) findViewById(R.id.number1);
+		number2Text = (EditText) findViewById(R.id.number2);
+		resultTextView = (TextView) findViewById(R.id.result);
 		mContext = this;
+		
+		 subtractBtn.setOnClickListener(new OnClickListener(){
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				int n1 = Integer.parseInt(number1Text.getText().toString());
+				int n2 = Integer.parseInt(number2Text.getText().toString());
+				String string_result = Integer.toString(subtract(n1,n2));
+				
+				showResult(string_result);
+			}
+		});
+		
+		
+		multiplyBtn.setOnClickListener(new OnClickListener(){
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				int n1 = Integer.parseInt(number1Text.getText().toString());
+				int n2 = Integer.parseInt(number2Text.getText().toString());
+				
+				String string_result = Integer.toString(multiply(n1,n2));
+				showResult(string_result);
+			}
+		});
+		
+		
+		divide.setOnClickListener(new OnClickListener(){
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				int n1 = Integer.parseInt(number1Text.getText().toString());
+				int n2 = Integer.parseInt(number2Text.getText().toString());
+				String string_result = Double.toString(divide(n1,n2));	
+				showResult(string_result);
+			}
+		});
+		
 		
 		addBtn.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				int n1 = Integer.parseInt(number1.getText().toString());
-				int n2 = Integer.parseInt(number2.getText().toString());
-				showResult(add(n1,n2));
+				int n1 = Integer.parseInt(number1Text.getText().toString());
+				int n2 = Integer.parseInt(number2Text.getText().toString());
+				String string_result = Integer.toString(add(n1,n2));
+				showResult(string_result);
 			}
 		});
 		
 		eraseBtn.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				
+								
 				AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
 				builder.setTitle("Alert");
 				builder.setMessage("Do you want to proceed?");
@@ -73,11 +114,14 @@ public class MainActivity extends ActionBarActivity {
 					}		
 				});
 				
-				alertDialog =	builder.create();	
+				AlertDialog alertDialog =	builder.create();	
 				alertDialog.show();
 
 			}
 		});
+		
+		
+		
 		
 		
 	}
@@ -99,10 +143,12 @@ public class MainActivity extends ActionBarActivity {
 		return n1*n2;
 	}
 	
-	public int divide(int n1, int n2){
+	public double divide(int n1, int n2){
 		if(n2==0)	return -1;
-		
-		return n1/n2;
+		double _n1=n1*1.0;
+		double _n2=n2*1.0;
+
+		return _n1/_n2;
 	}
 	
 	//showing the result using Toast
@@ -113,18 +159,17 @@ public class MainActivity extends ActionBarActivity {
 		t.show();				
 	}
 	
-	public void showResult(int _result){
-		String string_result = Integer.toString(_result);
-		result.setText(string_result);	
-		showToastMessage(string_result);
+	public void showResult(String result){
+		resultTextView.setText(result);	
+		showToastMessage(result);
 	}
 	
 	//Erasing the fields
 	public void eraseAll(){
 		//confirm that you really want to erase the UI			
-		number1.setText("");
-		number2.setText("");
-		result.setText("");
+		number1Text.setText("");
+		number2Text.setText("");
+		resultTextView.setText("");
 	}
 	
 	
