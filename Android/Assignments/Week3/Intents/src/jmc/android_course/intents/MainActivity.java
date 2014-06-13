@@ -17,11 +17,11 @@ import android.widget.Button;
 public class MainActivity extends Activity {
 	public final static String TAG = "Intents and Permissions Assignment"; //Main Activity TAG
 	public final static String MESSAGE = "Intent and Permissions Assignment Alarm";
-	static final String ACTION_CUSTOM = "jmc.android_course.intents.CUSTOM";
-	static final String EXTRA_CUSTOM_MESSAGE_TAG="EXTRA_CUSTOM_MESSAGE"; 
-	static final String EXTRA_CUSTOM_MESSAGE= "Starting Implicit Intent";
-	
-	
+	public static final String ACTION_CUSTOM = "jmc.android_course.intents.CUSTOM";
+	public static final String EXTRA_CUSTOM_MESSAGE_TAG="EXTRA_CUSTOM_MESSAGE"; 
+	public static final String EXTRA_CUSTOM_MESSAGE= "Starting Implicit Intent";
+	public static final String UWF_URL = "http:\\uwf.edu";
+
 	public final static int MINUTES = 30;
 	public final static int HOUR = 14;
 	public final static int DAY =Calendar.MONDAY;
@@ -52,10 +52,9 @@ public class MainActivity extends Activity {
 			@Override
 			public void onClick(View arg0) {
 				ArrayList<Integer> list = new ArrayList<Integer>();
-				list.add(Calendar.MONDAY);
-				list.add(Calendar.FRIDAY);
+				//TODO add appropriate days to the array, and call createAlarmIntent with right paramaters
 
-				 Intent intent = createAlarmIntent(TAG,list, 14,30);
+				 Intent intent = createAlarmIntent(TAG,list, -1,-1);
     			
 			     if(canBeResolved(intent)){
 			        	startActivity(intent);
@@ -104,8 +103,14 @@ public class MainActivity extends Activity {
 	}
 	/** Examines the intent */
 	public boolean canBeResolved(Intent intent){
-    	 PackageManager pm = getPackageManager();
-	    return intent.resolveActivity(pm) != null;		
+    	/*TODO  Check if intent can be resolved using one of the methods of PackageManager. 
+		Return true if it can be resolved or false otherwise
+		*/
+		PackageManager pm;
+		
+		
+
+	     return false;		
 	}
 	
 	
@@ -115,8 +120,7 @@ public class MainActivity extends Activity {
 	public Intent createSearchIntent()
 	{
 		Intent intent = new Intent();
-		intent.setAction(Intent.ACTION_WEB_SEARCH);	
-		intent.putExtra(SearchManager.QUERY, "http:\\uwf.edu");
+		/*TODO create a search intent */
 		return intent;
 	}
 	
@@ -127,9 +131,7 @@ public class MainActivity extends Activity {
 	public Intent createImplicitIntent()
 	{
 		Intent intent = new Intent();
-		intent.setAction(ACTION_CUSTOM);
-		intent.putExtra(EXTRA_CUSTOM_MESSAGE_TAG, EXTRA_CUSTOM_MESSAGE);
-		
+		/*TODO create an implicit intent */		
 		return intent;
 	}
 
@@ -139,12 +141,7 @@ public class MainActivity extends Activity {
 	public Intent createAlarmIntent(String message,ArrayList<Integer>days,int hour, int minutes)
 	{
 		 Intent intent = new Intent();
-		 intent.setAction(AlarmClock.ACTION_SET_ALARM);
-		 intent.putExtra(AlarmClock.EXTRA_DAYS, days);
-		 intent.putExtra(AlarmClock.EXTRA_MESSAGE, message);
-         intent.putExtra(AlarmClock.EXTRA_HOUR, hour);
-         intent.putExtra(AlarmClock.EXTRA_MINUTES, minutes);
-                           
+		/*TODO create an alarm intent */                          
          return intent;
 	}
 }

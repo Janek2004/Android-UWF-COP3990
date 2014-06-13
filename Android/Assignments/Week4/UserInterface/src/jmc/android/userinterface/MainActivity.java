@@ -22,6 +22,8 @@ public class MainActivity extends ActionBarActivity {
 
 	
 	public static final String TAG = "User Interface Assignment";
+	public static final String onCreateMessage = "Inside onCreate method in Main Activity";
+	
 	public Context mContext;	
 	public TextView resultTextView;
 	public EditText number1Text;
@@ -30,6 +32,8 @@ public class MainActivity extends ActionBarActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		Log.i(TAG, MainActivity.onCreateMessage);
+		
 		setContentView(R.layout.activity_main);
 		final Button addBtn = (Button) findViewById(R.id.add);
 		final Button multiplyBtn = (Button) findViewById(R.id.multiply);
@@ -103,7 +107,7 @@ public class MainActivity extends ActionBarActivity {
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
 						// TODO Auto-generated method stub
-						
+						dialog.cancel();
 					}		
 				});
 				builder.setPositiveButton("YES", new DialogInterface.OnClickListener(){
@@ -116,14 +120,8 @@ public class MainActivity extends ActionBarActivity {
 				
 				AlertDialog alertDialog =	builder.create();	
 				alertDialog.show();
-
 			}
-		});
-		
-		
-		
-		
-		
+		});	
 	}
 
 //Mathematical Operations
@@ -166,7 +164,7 @@ public class MainActivity extends ActionBarActivity {
 	
 	//Erasing the fields
 	public void eraseAll(){
-		//confirm that you really want to erase the UI			
+				
 		number1Text.setText("");
 		number2Text.setText("");
 		resultTextView.setText("");

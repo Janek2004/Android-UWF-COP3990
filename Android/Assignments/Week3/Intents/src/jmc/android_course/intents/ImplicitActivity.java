@@ -1,12 +1,9 @@
 package jmc.android_course.intents;
 
-//import jmc.android_course.activity_assignment.R;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-
-
 
 public class ImplicitActivity extends Activity {
 	public final static String TAG = "Intents and Permissions Assignment"; //Main Activity TAG
